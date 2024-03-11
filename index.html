@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seleccione su destino</title>
+  <style>
+    #provincia {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <h1>Elegir el destino</h1>
+  <p>Seleccione su destino para sus próximas vacaciones:</p>
+
+  <form action="submit.php" method="post">
+    <select id="pais" onchange="mostrarProvincia()">
+      <option value="">Elija destino</option>
+      <option value="españa">España</option>
+      <option value="fuera_espana">Fuera de España</option>
+    </select>
+
+    <select id="provincia">
+      <option value="">Elija provincia</option>
+      <option value="almeria">Valencia</option>
+      <option value="cadiz">Cádiz</option>
+      <option value="cordoba">Tarragona</option>
+      </select>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    function mostrarProvincia() {
+      const pais = document.getElementById("pais").value;
+      const provincia = document.getElementById("provincia");
+
+      if (pais === "españa") {
+        provincia.style.visibility = "visible";
+      } else {
+        provincia.style.visibility = "hidden";
+      }
+    }
+  </script>
+</body>
+</html>
